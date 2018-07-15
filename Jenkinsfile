@@ -24,8 +24,7 @@ pipeline {
         }
         stage('Deliver') {
                     steps {
-                        sh 'echo "............."'
-                        sh 'chmod 777 ./jenkins/deliver.sh'
+                        chmod --recursive a+rwx './jenkins'
                         sh './jenkins/deliver.sh'
                     }
                 }
