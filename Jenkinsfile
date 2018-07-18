@@ -22,11 +22,6 @@ pipeline {
                 }
             }
         }
-        stage('Deliver') {
-                    steps {
-                        chmod --recursive a+rwx './jenkins'
-                        sh './jenkins/deliver.sh'
-                    }
-                }
+        
     }
 }
