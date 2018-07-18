@@ -3,12 +3,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+            withMaven(maven : 'maven_3_5_3'){
+             sh 'mvn clean install'
+             }
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+            withMaven(maven : 'maven_3_5_3'){
+             sh 'mvn test'
+             }
+
             }
             post {
                 always {
